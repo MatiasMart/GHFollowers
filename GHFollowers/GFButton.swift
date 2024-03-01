@@ -37,4 +37,19 @@ class GFButton: UIButton {
         translatesAutoresizingMaskIntoConstraints = false
     }
     
-}
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+         super.touchesBegan(touches, with: event)
+         animateOpacityChange()
+     }
+
+     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+         super.touchesEnded(touches, with: event)
+         animateOpacityChange()
+     }
+
+     private func animateOpacityChange() {
+         UIView.animate(withDuration: 0.1, animations: {
+             self.alpha = self.isHighlighted ? 0.8 : 1.0
+         })
+     }
+ }

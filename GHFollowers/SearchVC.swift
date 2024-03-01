@@ -12,6 +12,8 @@ class SearchVC: UIViewController {
     let logoImageView = UIImageView()
     let usernameTextField = GFTextField()
     let callToActionButton = GFButton(backgroundColor: .systemGreen, title: "Get Followers")
+    
+    var isUsernameEntered: Bool { return !usernameTextField.text!.isEmpty }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +35,30 @@ class SearchVC: UIViewController {
     func createDismissKeyboardTapGesture() {
         let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
         view.addGestureRecognizer(tap)
+    }
+    
+    @objc func pushFollowersListVC() {
+        
+        guard isUsernameEntered else {
+            print("no username")
+            return
+            }
+        
+        // Steps to pass data to another VC
+        // 1. Create the object
+        let followersListVC = FollowerListVC()
+        // 2. Configure the data
+        followersListVC.username = usernameTextField.text
+        followersListVC.title = usernameTextField.text
+
+        
+        let transition = CATransition()
+        transition.duration = 0.5
+        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+        transition.type = CATransitionType.push
+        transition.subtype = CATransitionSubtype.fromTop
+        navigationController?.view.layer.add(transition, forKey: kCATransition)
+        self.navigationController?.pushViewController(followersListVC, animated: true)
     }
     
     
@@ -68,6 +94,8 @@ class SearchVC: UIViewController {
     
     func configureCallToActionButton() {
         view.addSubview(callToActionButton)
+        //Whenever the user tap the go "Go to Followers" button call pusshFollowesListVC
+        callToActionButton.addTarget(self, action: #selector(pushFollowersListVC), for: .touchUpInside)
         
         NSLayoutConstraint.activate([
             callToActionButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -50),
@@ -81,7 +109,7 @@ class SearchVC: UIViewController {
 
 extension SearchVC: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        
+        pushFollowersListVC()
         return true
     }
 }
