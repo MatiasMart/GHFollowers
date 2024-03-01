@@ -8,11 +8,80 @@
 import UIKit
 
 class SearchVC: UIViewController {
+    
+    let logoImageView = UIImageView()
+    let usernameTextField = GFTextField()
+    let callToActionButton = GFButton(backgroundColor: .systemGreen, title: "Get Followers")
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemPink
+        view.backgroundColor = .systemBackground
+        configureLogoImageView()
+        configureTextField()
+        configureCallToActionButton()
+        createDismissKeyboardTapGesture()
         }
-  
+    
+    
+    // Hide the navigation bar before the view even appear
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.isNavigationBarHidden =  true
+    }
+    
+    
+    func createDismissKeyboardTapGesture() {
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
+        view.addGestureRecognizer(tap)
+    }
+    
+    
+    func configureLogoImageView() {
+        //first add the Subview
+        view.addSubview(logoImageView)
+        // set the autoresizing to false that means that I'm are goint to use autoLayout
+        logoImageView.translatesAutoresizingMaskIntoConstraints = false
+        logoImageView.image = UIImage(resource: .ghLogo)
+        
+        //Set all the contraints
+        NSLayoutConstraint.activate([
+            logoImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 80),
+            logoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            logoImageView.heightAnchor.constraint(equalToConstant: 200),
+            logoImageView.widthAnchor.constraint(equalToConstant: 200)
+        ])
+    }
 
+    
+    func configureTextField() {
+        view.addSubview(usernameTextField)
+        usernameTextField.delegate = self
+        
+        NSLayoutConstraint.activate([
+            usernameTextField.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 48),
+            usernameTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            usernameTextField.heightAnchor.constraint(equalToConstant: 50),
+            usernameTextField.widthAnchor.constraint(equalToConstant: 290)
+        ])
+    }
+    
+    
+    func configureCallToActionButton() {
+        view.addSubview(callToActionButton)
+        
+        NSLayoutConstraint.activate([
+            callToActionButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -50),
+            callToActionButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            callToActionButton.widthAnchor.constraint(equalToConstant: 290),
+            callToActionButton.heightAnchor.constraint(equalToConstant: 50)
+        ])
+        
+    }
+}
+
+extension SearchVC: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        return true
+    }
 }
