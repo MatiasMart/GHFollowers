@@ -28,7 +28,7 @@ class SearchVC: UIViewController {
     // Hide the navigation bar before the view even appear
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.isNavigationBarHidden =  true
+        navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
     

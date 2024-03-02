@@ -91,7 +91,6 @@
 		6248B5C42B93CBAB00A8B580 /* Support */ = {
 			isa = PBXGroup;
 			children = (
-				625916C32B91159500DDB3E9 /* Info.plist */,
 				625916B52B91159400DDB3E9 /* AppDelegate.swift */,
 				625916B72B91159400DDB3E9 /* SceneDelegate.swift */,
 				625916BE2B91159500DDB3E9 /* Assets.xcassets */,
@@ -128,6 +127,7 @@
 		625916B42B91159400DDB3E9 /* GHFollowers */ = {
 			isa = PBXGroup;
 			children = (
+				625916C32B91159500DDB3E9 /* Info.plist */,
 				6248B5C52B93E91D00A8B580 /* Model */,
 				6248B5C42B93CBAB00A8B580 /* Support */,
 				6248B5C32B93CB2000A8B580 /* Extension */,
