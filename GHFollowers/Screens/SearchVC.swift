@@ -56,7 +56,7 @@ class SearchVC: UIViewController {
         transition.duration = 0.5
         transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
         transition.type = CATransitionType.push
-        transition.subtype = CATransitionSubtype.fromTop
+        transition.subtype = CATransitionSubtype.fromRight
         navigationController?.view.layer.add(transition, forKey: kCATransition)
         self.navigationController?.pushViewController(followersListVC, animated: true)
     }
