@@ -1,8 +1,8 @@
 //
-//  ErrorMessage.swift
+//  GFError.swift
 //  GHFollowers
 //
-//  Created by Matias Martinelli on 04/03/2024.
+//  Created by Matias Martinelli on 07/03/2024.
 //
 
 import Foundation
