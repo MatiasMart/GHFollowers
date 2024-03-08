@@ -35,7 +35,21 @@ class GFUserInfoHeaderVC: UIViewController {
     }
     
     func configureUIElements() {
-        avatarImageView.downloadImage(from: user.login)
+        avatarImageView.setImage(from: user.avatarUrl)
+        usernameLebel.text = user.login
+        nameLabel.text = user.name ?? ""
+        locationLabel.text = user.location ?? ""
+        bioLabel.text = user.bio ?? ""
+        bioLabel.numberOfLines = 0
+        
+        if locationLabel.text == "" {
+            locationImageView.image = UIImage(systemName: SFSymbols.location)
+            locationImageView.tintColor = .systemBackground
+        } else {
+            let config = UIImage.SymbolConfiguration(paletteColors: [.label, .systemBlue])
+            locationImageView.image = UIImage(systemName: SFSymbols.location)?.withConfiguration(config)
+        }
+        
     }
     
 
