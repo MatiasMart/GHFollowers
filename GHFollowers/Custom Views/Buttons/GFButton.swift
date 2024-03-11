@@ -21,6 +21,7 @@ class GFButton: UIButton {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
     //Set the background color and title of the button at the init
     init(backgroundColor: UIColor, title: String) {
         super.init(frame: .zero)
@@ -28,6 +29,7 @@ class GFButton: UIButton {
         self.setTitle(title, for: .normal)
         configure()
     }
+    
     
     //configure the custom button
     private func configure() {
@@ -37,19 +39,28 @@ class GFButton: UIButton {
         translatesAutoresizingMaskIntoConstraints = false
     }
     
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
          super.touchesBegan(touches, with: event)
          animateOpacityChange()
      }
 
+    
      override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
          super.touchesEnded(touches, with: event)
          animateOpacityChange()
      }
 
+    
      private func animateOpacityChange() {
          UIView.animate(withDuration: 0.1, animations: {
              self.alpha = self.isHighlighted ? 0.8 : 1.0
          })
      }
+    
+    
+    func set(backgroundColor: UIColor, title: String) {
+        self.backgroundColor = backgroundColor
+        setTitle(title, for: .normal)
+    }
  }

@@ -1,5 +1,5 @@
 //
-//  GFItemVC.swift
+//  GFItemInfoVC.swift
 //  GHFollowers
 //
 //  Created by Matias Martinelli on 11/03/2024.
@@ -7,24 +7,35 @@
 
 import UIKit
 
-class GFItemVC: UIViewController {
+class GFItemInfoVC: UIViewController {
     
     let stackView = UIStackView()
     let itemInfoViewOne = GFItemInfoView()
     let itemInfoViewTwo = GFItemInfoView()
     let actionButton = GFButton()
+    
+    var user: User!
 
+    init(user: User) {
+        super.init(nibName: nil, bundle: nil)
+        self.user = user
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureBackgroundView()
         layoutUI()
-        configureStackView() 
+        configureStackView()
     }
     
     
    private func configureBackgroundView() {
         view.layer.cornerRadius = 18
-        view.backgroundColor = .secondarySystemGroupedBackground
+        view.backgroundColor = .secondarySystemBackground
     }
     
     private func configureStackView() {

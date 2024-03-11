@@ -34,7 +34,9 @@
 		62C23B932B925DB900524BBB /* GFAlertContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C23B922B925DB900524BBB /* GFAlertContainer.swift */; };
 		62CE8F492B92120100BE185E /* GFTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CE8F482B92120100BE185E /* GFTextField.swift */; };
 		62CE8F4B2B92252B00BE185E /* FollowerListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CE8F4A2B92252B00BE185E /* FollowerListVC.swift */; };
-		62D3AC3B2B9F897800F8187A /* GFItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D3AC3A2B9F897800F8187A /* GFItemVC.swift */; };
+		62D3AC3B2B9F897800F8187A /* GFItemInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D3AC3A2B9F897800F8187A /* GFItemInfoVC.swift */; };
+		62D3AC3D2B9F912400F8187A /* GFRepoItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D3AC3C2B9F912400F8187A /* GFRepoItemVC.swift */; };
+		62D3AC3F2B9F956C00F8187A /* GFFollowerItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D3AC3E2B9F956C00F8187A /* GFFollowerItemVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,7 +69,9 @@
 		62C23B922B925DB900524BBB /* GFAlertContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFAlertContainer.swift; sourceTree = "<group>"; };
 		62CE8F482B92120100BE185E /* GFTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFTextField.swift; sourceTree = "<group>"; };
 		62CE8F4A2B92252B00BE185E /* FollowerListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerListVC.swift; sourceTree = "<group>"; };
-		62D3AC3A2B9F897800F8187A /* GFItemVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFItemVC.swift; sourceTree = "<group>"; };
+		62D3AC3A2B9F897800F8187A /* GFItemInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFItemInfoVC.swift; sourceTree = "<group>"; };
+		62D3AC3C2B9F912400F8187A /* GFRepoItemVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFRepoItemVC.swift; sourceTree = "<group>"; };
+		62D3AC3E2B9F956C00F8187A /* GFFollowerItemVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFFollowerItemVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,9 +122,9 @@
 		622E33192B98C15A0063C294 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				62D3AC402B9F95C300F8187A /* ItemInfoVC */,
 				62C23B8E2B925A3300524BBB /* GFAlertVC.swift */,
 				6280852C2B9B5C0E008EA841 /* GFUserInfoHeaderVC.swift */,
-				62D3AC3A2B9F897800F8187A /* GFItemVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -245,6 +249,16 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		62D3AC402B9F95C300F8187A /* ItemInfoVC */ = {
+			isa = PBXGroup;
+			children = (
+				62D3AC3A2B9F897800F8187A /* GFItemInfoVC.swift */,
+				62D3AC3C2B9F912400F8187A /* GFRepoItemVC.swift */,
+				62D3AC3E2B9F956C00F8187A /* GFFollowerItemVC.swift */,
+			);
+			path = ItemInfoVC;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -327,13 +341,15 @@
 				6248B5C92B93E9F400A8B580 /* User.swift in Sources */,
 				6262C5C92B9A5C64004B2423 /* GFError.swift in Sources */,
 				6288755C2B9650EF008F6003 /* FollowerCell.swift in Sources */,
+				62D3AC3D2B9F912400F8187A /* GFRepoItemVC.swift in Sources */,
 				6288755E2B965187008F6003 /* GFAvatarImageView.swift in Sources */,
 				625916CA2B91208000DDB3E9 /* SearchVC.swift in Sources */,
 				6262C5C72B9A4B42004B2423 /* UserInfoVC.swift in Sources */,
 				6248B5C72B93E93000A8B580 /* Follower.swift in Sources */,
-				62D3AC3B2B9F897800F8187A /* GFItemVC.swift in Sources */,
+				62D3AC3B2B9F897800F8187A /* GFItemInfoVC.swift in Sources */,
 				62C23B8B2B92575600524BBB /* GFTitleLabel.swift in Sources */,
 				62CE8F4B2B92252B00BE185E /* FollowerListVC.swift in Sources */,
+				62D3AC3F2B9F956C00F8187A /* GFFollowerItemVC.swift in Sources */,
 				62C23B932B925DB900524BBB /* GFAlertContainer.swift in Sources */,
 				628875602B97A26B008F6003 /* UIHelper.swift in Sources */,
 				628875562B96107D008F6003 /* NetworkManager.swift in Sources */,
