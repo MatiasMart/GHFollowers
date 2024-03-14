@@ -118,7 +118,7 @@ class FollowerListVC: UIViewController {
     }
     
     @objc func addButtonTapped() {
-        print("Don't touch me you filthy animal")
+        NetworkManager.shared.getUserInfo(for: <#T##String#>, completed: <#T##(Result<User, GFError>) -> Void#>)
         
     }
 }
