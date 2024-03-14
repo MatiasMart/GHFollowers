@@ -23,6 +23,7 @@ class UserInfoVC: UIViewController {
 
     
     var username: String!
+    weak var delegate: followerListVCDelegate!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -119,14 +120,17 @@ extension UserInfoVC: UserInfoVCDelegate {
             return
         }
         
-        let safariVC = SFSafariViewController(url: url)
-        safariVC.preferredControlTintColor = .systemGreen
-        
-        present(safariVC, animated: true)
+        presentSafariVC(with: url)
     }
     
     func didTapGetFollower(for user: User) {
         
+        guard user.followers != 0 else {
+            presentGFAlertOnMainThread(title: "No followers", message: "This user has no followers 😣", buttonTitle: "So sad")
+            return
+        }
+        delegate.didRequestFollower(for: user.login)
+        dismissVC()
     }
 
     
