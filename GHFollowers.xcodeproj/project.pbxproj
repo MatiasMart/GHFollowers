@@ -40,7 +40,6 @@
 		62D3AC3D2B9F912400F8187A /* GFRepoItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D3AC3C2B9F912400F8187A /* GFRepoItemVC.swift */; };
 		62D3AC3F2B9F956C00F8187A /* GFFollowerItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D3AC3E2B9F956C00F8187A /* GFFollowerItemVC.swift */; };
 		62D3AC422B9F9C4300F8187A /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D3AC412B9F9C4300F8187A /* Date+Ext.swift */; };
-		62D3AC442B9F9D3E00F8187A /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D3AC432B9F9D3E00F8187A /* String+Ext.swift */; };
 		62F829A52BAA1D5E00DB757E /* FavoriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F829A42BAA1D5E00DB757E /* FavoriteCell.swift */; };
 		62F829A82BAA313B00DB757E /* GFTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F829A72BAA313B00DB757E /* GFTabBarController.swift */; };
 /* End PBXBuildFile section */
@@ -81,7 +80,6 @@
 		62D3AC3C2B9F912400F8187A /* GFRepoItemVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFRepoItemVC.swift; sourceTree = "<group>"; };
 		62D3AC3E2B9F956C00F8187A /* GFFollowerItemVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFFollowerItemVC.swift; sourceTree = "<group>"; };
 		62D3AC412B9F9C4300F8187A /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
-		62D3AC432B9F9D3E00F8187A /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		62F829A42BAA1D5E00DB757E /* FavoriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCell.swift; sourceTree = "<group>"; };
 		62F829A72BAA313B00DB757E /* GFTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFTabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -183,7 +181,6 @@
 			children = (
 				62B7EF192B92664C00875D92 /* UIViewController+Ext.swift */,
 				62D3AC412B9F9C4300F8187A /* Date+Ext.swift */,
-				62D3AC432B9F9D3E00F8187A /* String+Ext.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -375,7 +372,6 @@
 				6248B5C72B93E93000A8B580 /* Follower.swift in Sources */,
 				62D3AC3B2B9F897800F8187A /* GFItemInfoVC.swift in Sources */,
 				623DF70D2BA3781700B2594E /* PersistanceManager.swift in Sources */,
-				62D3AC442B9F9D3E00F8187A /* String+Ext.swift in Sources */,
 				62C23B8B2B92575600524BBB /* GFTitleLabel.swift in Sources */,
 				62CE8F4B2B92252B00BE185E /* FollowerListVC.swift in Sources */,
 				62D3AC3F2B9F956C00F8187A /* GFFollowerItemVC.swift in Sources */,
