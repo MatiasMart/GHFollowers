@@ -43,11 +43,11 @@ class GFUserInfoHeaderVC: UIViewController {
         bioLabel.numberOfLines = 0
         
         if locationLabel.text == "" {
-            locationImageView.image = UIImage(systemName: SFSymbols.noLocation)
+            locationImageView.image = SFSymbols.noLocation
             locationImageView.tintColor = .label
         } else {
             let config = UIImage.SymbolConfiguration(paletteColors: [.label, .systemGreen])
-            locationImageView.image = UIImage(systemName: SFSymbols.location)?.withConfiguration(config)
+            locationImageView.image = SFSymbols.location?.withConfiguration(config)
         }
         
     }

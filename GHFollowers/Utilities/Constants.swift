@@ -8,12 +8,12 @@
 import UIKit
 
 enum SFSymbols {
-    static let location =  "mappin.and.ellipse"
-    static let noLocation = "mappin.slash"
-    static let repos = "folder"
-    static let gists = "text.alignleft"
-    static let followers = "heart"
-    static let following = "person.2"
+    static let location =  UIImage(systemName: "mappin.and.ellipse")
+    static let noLocation = UIImage(systemName: "mappin.slash")
+    static let repos = UIImage(systemName: "folder")
+    static let gists = UIImage(systemName: "text.alignleft")
+    static let followers = UIImage(systemName: "heart")
+    static let following = UIImage(systemName: "person.2")
 }
 
 enum ScreenSize {
