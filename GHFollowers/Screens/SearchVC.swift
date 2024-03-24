@@ -12,6 +12,7 @@ class SearchVC: UIViewController {
     let logoImageView = UIImageView()
     let usernameTextField = GFTextField()
     let callToActionButton = GFButton(backgroundColor: .systemGreen, title: "Get Followers")
+    let testButton = MMButton(background: .systemRed, title: "Test Button")
     
     var isUsernameEntered: Bool { return !usernameTextField.text!.isEmpty }
 
@@ -21,6 +22,7 @@ class SearchVC: UIViewController {
         configureLogoImageView()
         configureTextField()
         configureCallToActionButton()
+        configureTestButton()
         createDismissKeyboardTapGesture()
         }
     
@@ -29,11 +31,12 @@ class SearchVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: true)
+        usernameTextField.text = ""
     }
     
     
     func createDismissKeyboardTapGesture() {
-        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
+        let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
         view.addGestureRecognizer(tap)
     }
     
@@ -46,19 +49,21 @@ class SearchVC: UIViewController {
         
         // Steps to pass data to another VC
         // 1. Create the object
-        let followersListVC = FollowerListVC()
-        // 2. Configure the data
-        followersListVC.username = usernameTextField.text
-        followersListVC.title = usernameTextField.text
+        let followersListVC = FollowerListVC(username: usernameTextField.text!)
 
-        
-        let transition = CATransition()
-        transition.duration = 0.5
-        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
-        transition.type = CATransitionType.push
-        transition.subtype = CATransitionSubtype.fromRight
-        navigationController?.view.layer.add(transition, forKey: kCATransition)
         self.navigationController?.pushViewController(followersListVC, animated: true)
+    }
+    
+    @objc func testMMButton() {
+        
+        guard isUsernameEntered else { showAlertMessage(title: "Empty Username", message: "Please enter a username. We need to know who to look for 😀")
+            return
+        }
+        
+        let excelVC = FollowerListVC(username: usernameTextField.text!)
+        excelVC.username = usernameTextField.text
+        excelVC.title = usernameTextField.text
+        navigationController?.pushViewController(excelVC, animated: true)
     }
     
     
@@ -94,17 +99,30 @@ class SearchVC: UIViewController {
     
     func configureCallToActionButton() {
         view.addSubview(callToActionButton)
-        //Whenever the user tap the go "Go to Followers" button call pusshFollowesListVC
+        //Whenever the user tap the go "Go to Followers" button call pushFollowersListVC
         callToActionButton.addTarget(self, action: #selector(pushFollowersListVC), for: .touchUpInside)
         
         NSLayoutConstraint.activate([
-            callToActionButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -50),
+//            callToActionButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -50),
+            callToActionButton.topAnchor.constraint(equalTo: usernameTextField.bottomAnchor, constant: 200),
             callToActionButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             callToActionButton.widthAnchor.constraint(equalToConstant: 290),
             callToActionButton.heightAnchor.constraint(equalToConstant: 50)
         ])
-        
     }
+    
+    func configureTestButton() {
+        view.addSubview(testButton)
+        testButton.addTarget(self, action: #selector(testMMButton), for: .touchUpInside)
+        
+        NSLayoutConstraint.activate([
+            testButton.topAnchor.constraint(equalTo: callToActionButton.bottomAnchor, constant: 10),
+            testButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            testButton.widthAnchor.constraint(equalToConstant: 290),
+            testButton.heightAnchor.constraint(equalToConstant: 50)
+        ])
+    }
+    
 }
 
 extension SearchVC: UITextFieldDelegate {
@@ -113,3 +131,17 @@ extension SearchVC: UITextFieldDelegate {
         return true
     }
 }
+
+extension UIViewController{
+    
+    public func showAlertMessage(title: String, message: String){
+        DispatchQueue.main.async {
+            let alertMessagePopUpBox = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            let okButton = UIAlertAction(title: "OK", style: .default)
+            
+            alertMessagePopUpBox.addAction(okButton)
+            self.present(alertMessagePopUpBox, animated: true)
+        }
+    }
+}
+
